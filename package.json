@@ -1,0 +1,35 @@
+{
+  "name": "megamenu",
+  "version": "1.0.0",
+  "description": "An accessible and responsive mega menu solution",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crpozo/megamenu.git"
+  },
+  "keywords": [
+    "megamenu",
+    "bootstrap5"
+  ],
+  "author": "Carlos Pozo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crpozo/megamenu/issues"
+  },
+  "homepage": "https://github.com/crpozo/megamenu#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "bootstrap": "^5.0.2",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.0.1",
+    "postcss": "^8.1.0",
+    "sass": "^1.35.1"
+  }
+}
