@@ -1,6 +1,6 @@
 {
   "name": "@cpozo/megamenu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An accessible and responsive mega menu solution",
   "main": "index.js",
   "scripts": {
