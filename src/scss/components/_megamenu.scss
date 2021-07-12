@@ -1,0 +1,38 @@
+// Dropdown Submenus
+  .dropdown-submenu {
+      position: relative;
+  }
+  
+  .dropdown-submenu{
+      .dropdown-menu {
+          top: 0;
+          left: 100%;
+          margin-top: -1px;
+      }
+      .dropdown-menu-right{
+          left: auto;
+          right: 100%;
+      }
+  }
+  
+  // Mega Menu
+  .nav-item.dropdown.dropdown-mega{
+      position: static;
+      .dropdown-menu{
+          width: 90%;
+          top: auto;
+          left: 5%;
+      }
+  }
+
+// Dropdown animation
+   @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.dropdown-menu{
+    &.show{
+         animation: fadeIn 0.3s ease;
+    }
+}

@@ -1,4 +1,3 @@
-const gulp = require('gulp');
 const concat = require('gulp-concat');
 const terser = require('gulp-terser');
 const sourcemaps = require('gulp-sourcemaps');
@@ -7,9 +6,9 @@ const autoprefixer = require('gulp-autoprefixer');
 const { src, series, parallel, dest, watch } = require('gulp');
 
 var paths = {
-    src         : "src/",
-    dist        : "dist/",
-    bootstrap   : "node_modules/bootstrap/",
+    src         : "./src/",
+    dist        : "./dist/",
+    bootstrap   : "./node_modules/bootstrap/",
 };
 
 var js = {
@@ -17,29 +16,24 @@ var js = {
         paths.bootstrap + 'dist/js/bootstrap.bundle.min.js',
         paths.src + 'js/*.js'
     ],
-    out: paths.dist  + 'js'
+    out: paths.dist  + 'js',
+    watch: paths.src + 'js/*.js'
 };
 
-// Scss options
 var scss = {
     in: [paths.src + 'scss/main.scss'],
     out: paths.dist + 'css',
-    watch: paths.src + 'scss/*.scss',
+    watch: paths.src + 'scss/**/*.scss',
     sassOpts: {
         outputStyle: 'compressed',
-        precison: 3,
+        precision: 3,
         errLogToConsole: true,
         sourcemap: true,
         includePaths: [
-            paths.bootstrap + 'scss',
-            paths.src + 'scss'
+            paths.bootstrap + 'scss'
         ]
     }
 };
-
-function htmlTask(){
-    return src(paths.src + '*.html').pipe(dest(paths.dist));
-}
 
 function jsTask(){
     return src(js.in)
@@ -56,12 +50,16 @@ function scssTask(){
         .pipe(sass(scss.sassOpts))
         .pipe(concat('cssBundle.css'))
         .pipe(autoprefixer())
-        .pipe(sourcemaps.write('.'))
+        .pipe(sourcemaps.write('./'))
         .pipe(dest(scss.out));
 }
 
+function htmlTask(){
+    return src(paths.src + '*.html').pipe(dest(paths.dist));
+}
+
 function watchTask(){
-    watch([scss.watch, js.in, paths.src+'*.html'], {interval: 1000}, parallel(jsTask, scssTask, htmlTask));
+    watch([js.watch, scss.watch, paths.src+'*.html'], {interval: 1000}, parallel(jsTask, scssTask, htmlTask));
 }
 
 exports.default = series(
