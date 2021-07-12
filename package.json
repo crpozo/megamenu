@@ -1,7 +1,7 @@
 {
   "name": "@cpozo/megamenu",
-  "version": "1.0.2",
-  "description": "An accessible and responsive mega menu solution",
+  "version": "1.0.3",
+  "description": "An accessible and responsive mega menu solution with Bootstrap 5 included",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
